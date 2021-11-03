@@ -7,6 +7,6 @@ spec:
   host: ngc-default.apps.ocp4.nh.com
   to:
     kind: Service
-    name: ngc-pod2
+    name: ngc-pod
   port:
     targetPort: jupyter
