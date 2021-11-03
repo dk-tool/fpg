@@ -21,5 +21,4 @@ spec:
         - containerPort: 80
       command: ["/bin/bash", "-c"]
       args:
-        - export JUPYTER_DATA_DIR=/tmp/.local;
-          sleep 3000;
+        - sleep 3000;
