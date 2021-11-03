@@ -7,7 +7,6 @@ metadata:
   namespace: openshift-gitops
 spec:
   securityContext:
-    readOnlyRootFilesystem: false
     runAsGroup: 0
     runAsNonRoot: false
     runAsUser: 0
