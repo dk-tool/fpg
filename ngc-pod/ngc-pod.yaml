@@ -4,7 +4,7 @@ metadata:
   name: ngc-pod
   labels:
     app: ngc-pod
-  namespace: default
+  namespace: openshift-gitops
 spec:
   containers:
     - name: ngc-pod
