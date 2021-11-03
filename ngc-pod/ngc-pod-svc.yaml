@@ -10,5 +10,5 @@ spec:
   ports:
     - name: jupyter
       protocol: TCP
-      port: 80
-      targetPort: 8888
+      port: 8888
+      targetPort: 80
