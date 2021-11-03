@@ -19,7 +19,9 @@ spec:
           containerPort: 22
           protocol: TCP
         - containerPort: 80
+       env:
+       - name: JUPYTER_DATA_DIR
+         value: "/tmp/.local"
       command: ["/bin/bash", "-c"]
       args:
-        - export JUPYTER_DATA_DIR=/tmp/.local;
-          sleep 3000;
+        - sleep 3000;
