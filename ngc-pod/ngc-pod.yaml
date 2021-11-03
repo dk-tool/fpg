@@ -6,11 +6,11 @@ metadata:
     app: ngc-pod
   namespace: openshift-gitops
 spec:
-  securityContext:
-    privileged: true
   containers:
     - name: ngc-pod
       image: 'nvcr.io/nvidia/tensorflow:21.09-tf2-py3'
+      securityContext:
+        privileged: true
       ports:
         - name: jupyter
           containerPort: 8888
