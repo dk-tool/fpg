@@ -19,5 +19,4 @@ spec:
         - containerPort: 80
       command: ["/bin/bash", "-c"]
       args:
-        - jupyter notebook --notebook-dir=~ --allow-root &> /dev/null &
-          tail -f /dev/null; 
+        - sleep 3000;
