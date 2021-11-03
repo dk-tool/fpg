@@ -10,7 +10,7 @@ spec:
     runAsNonRoot: false
   containers:
     - name: ngc-pod
-      image: 'docker pull jupyter/tensorflow-notebook:tensorflow-2.6.0'
+      image: 'jupyter/tensorflow-notebook:tensorflow-2.6.0'
       ports:
         - name: jupyter
           containerPort: 8888
