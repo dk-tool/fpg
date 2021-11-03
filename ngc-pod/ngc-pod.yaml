@@ -12,7 +12,7 @@ spec:
       ports:
         - name: jupyter
           containerPort: 8888
-          potocol: TCP
+          protocol: TCP
         - containerPort: 22
         - containerPort: 80
       command: ["/bin/bash", "-c"]
