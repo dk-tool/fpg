@@ -1,10 +1,10 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: ngc
+  name: ngc-pod
   namespace: openshift-gitops
 spec:
-  host: ngc-default.apps.ocp4.nh.com
+  host: ngc-pod-default.apps.ocp4.nh.com
   to:
     kind: Service
     name: ngc-pod
