@@ -24,4 +24,4 @@ spec:
           value: "/tmp/.local"
       command: ["/bin/bash", "-c"]
       args:
-        - sleep 3000;
+        - jupyter notebook --notebook-dir=/tmp;
