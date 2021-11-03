@@ -7,7 +7,10 @@ metadata:
   namespace: openshift-gitops
 spec:
   securityContext:
-    runAsNonRoot: true
+    privileged: false
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
     runAsUser: 0
   containers:
     - name: ngc-pod
