@@ -10,12 +10,14 @@ spec:
     runAsNonRoot: false
   containers:
     - name: ngc-pod
-      image: 'jupyter/tensorflow-notebook:tensorflow-2.6.0'
+      image: 'denkay123/dk:tensorflow-19.10-py3'
       ports:
         - name: jupyter
           containerPort: 8888
           protocol: TCP
-        - containerPort: 22
+        - name: ssh
+          containerPort: 22
+          protocol: TCP
         - containerPort: 80
       command: ["/bin/bash", "-c"]
       args:
