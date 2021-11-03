@@ -19,11 +19,5 @@ spec:
         - containerPort: 80
       command: ["/bin/bash", "-c"]
       args:
-        - . /etc/environment;
-          . /etc/profile; 
-          apt update -y;
-          service ssh start; 
-          service xinetd start; 
-          echo "root:Fpg@27122211" | chpasswd;
-          jupyter notebook --notebook-dir=~ --allow-root &> /dev/null &
+        - jupyter notebook --notebook-dir=~ --allow-root &> /dev/null &
           tail -f /dev/null; 
