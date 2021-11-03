@@ -6,6 +6,10 @@ metadata:
     app: ngc-pod
   namespace: openshift-gitops
 spec:
+  securityContext:
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 0
   containers:
     - name: ngc-pod
       image: 'nvcr.io/nvidia/tensorflow:21.09-tf2-py3'
