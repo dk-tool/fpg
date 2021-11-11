@@ -11,5 +11,5 @@ build:
       /kaniko/executor
       --context "${CI_PROJECT_DIR}/fpg-v1"
       --dockerfile "Dockerfile"
-      --destination "harbor.sti.demo/fpg:v1"
+      --destination "harbor.sti.demo/fpg/ngc:v1"
       --insecure 
