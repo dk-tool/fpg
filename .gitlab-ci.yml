@@ -4,7 +4,7 @@ build:
     name: gcr.io/kaniko-project/executor:debug
     entrypoint: [""]
   rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == $CI_DEFAULT_BRANCH'
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
   script:
     - mkdir -p /kaniko/.docker
     - echo "10.92.30.110   example-registry-quay-quay-test.apps.ocp4.nh.com" >> /etc/hosts
