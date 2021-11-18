@@ -5,8 +5,6 @@ build:
     entrypoint: [""]
   rules:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
-      changes:
-        - Dockerfile
   script:
     - mkdir -p /kaniko/.docker
     - echo "10.92.30.110   example-registry-quay-quay-test.apps.ocp4.nh.com" >> /etc/hosts
