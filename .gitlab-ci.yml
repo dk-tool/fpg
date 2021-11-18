@@ -17,5 +17,3 @@ build:
       --skip-tls-verify
   rules:
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
-      when: manual
-      allow_failure: true
