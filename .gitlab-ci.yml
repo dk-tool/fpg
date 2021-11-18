@@ -3,6 +3,8 @@ build:
   image:
     name: gcr.io/kaniko-project/executor:debug
     entrypoint: [""]
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
   script:
     - mkdir -p /kaniko/.docker
     - echo "10.92.30.110   example-registry-quay-quay-test.apps.ocp4.nh.com" >> /etc/hosts
@@ -15,5 +17,4 @@ build:
       --destination "example-registry-quay-quay-test.apps.ocp4.nh.com/sti/fpg:ubuntu-20.04"
       --insecure 
       --skip-tls-verify
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
+
