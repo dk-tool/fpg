@@ -3,3 +3,4 @@ RUN apt update
 RUN apt install net-tools -y
 RUN echo "welcome to demo" > /worktmp/message.txt
 CMD ['/bin/bash', -c]
+
