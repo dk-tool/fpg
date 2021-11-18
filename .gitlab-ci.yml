@@ -15,3 +15,6 @@ build:
       --destination "example-registry-quay-quay-test.apps.ocp4.nh.com/sti/fpg:ngc-v1"
       --insecure 
       --skip-tls-verify
+  rules:
+     changes:
+       - Dockerfile
