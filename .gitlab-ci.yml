@@ -16,5 +16,5 @@ build:
       --insecure 
       --skip-tls-verify
   rules:
-     changes:
-       - Dockerfile
+     - changes:
+        - Dockerfile
