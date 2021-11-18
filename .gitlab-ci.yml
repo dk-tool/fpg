@@ -5,7 +5,7 @@ build:
     entrypoint: [""]
   only:
     refs:
-      - branches
+      - main
     changes:
       - Dockerfile
   script:
