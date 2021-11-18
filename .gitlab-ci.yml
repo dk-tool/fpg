@@ -16,5 +16,6 @@ build:
       --insecure 
       --skip-tls-verify
   rules:
-     - changes:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
         - Dockerfile
