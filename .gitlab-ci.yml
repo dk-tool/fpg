@@ -18,4 +18,5 @@ build:
       --destination "example-registry-quay-quay-test.apps.ocp4.nh.com/sti/fpg:ubuntu-20.04"
       --insecure 
       --skip-tls-verify
+      --push-retry 2
 
