@@ -6,7 +6,7 @@ build:
   rules:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
       changes:
-        - fpg-dockerfile/*
+        - fpg-dockerfile/**/
   script:
     - mkdir -p /kaniko/.docker
     - echo "10.92.30.110   example-registry-quay-quay-test.apps.ocp4.nh.com" >> /etc/hosts
