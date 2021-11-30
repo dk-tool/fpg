@@ -16,7 +16,7 @@ build:
       /kaniko/executor
       --context "${CI_PROJECT_DIR}/fpg-dockerfile"
       --dockerfile "Dockerfile"
-      --destination "example-registry-quay-quay-test.apps.ocp4.nh.com/sti/fpg:ubuntu-20.04-v1"
+      --destination "example-registry-quay-quay-test.apps.ocp4.nh.com/sti/fpg:ubuntu-20.04-v2"
       --insecure 
       --skip-tls-verify
       --push-retry 2
