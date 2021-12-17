@@ -17,7 +17,7 @@ build:
       /kaniko/executor
       --context "${CI_PROJECT_DIR}/fpg-dockerfile"
       --dockerfile "Dockerfile"
-      --destination "example-registry-quay-quay-test.apps.ocp4.nh.com/sti/fpg:r32.6.1-tf2.5-py3"
+      --destination "example-registry-quay-quay-test.apps.ocp4.nh.com/sti/fpg:aspv4"
       --insecure 
       --skip-tls-verify
       --push-retry 2
