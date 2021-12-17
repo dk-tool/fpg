@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM nvcr.io/nvidia/l4t-tensorflow:r32.6.1-tf2.5-py3
 RUN apt update
 RUN apt install net-tools -y
 RUN mkdir /worktmp
