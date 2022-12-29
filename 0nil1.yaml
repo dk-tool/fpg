@@ -1,0 +1,67 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-0nil1
+  #Deployment name , name not use '_'
+  namespace: fsi001
+  labels: 
+    app: deployment-dev-0nil1
+ #Deployment app name
+spec:
+  selector:
+    matchLabels:
+      app: dev-0nil1       #pod app name
+  replicas: 1              #mutil pod for load balance
+  template:
+    metadata: 
+      labels:
+        app: dev-0nil1
+    spec:
+      volumes:
+        - name: oracle-tnsname
+          hostPath:
+            path: /mnt/tpainas01/fpg/oracle    #oracle tnsname path on host   
+            type: Directory
+        - name: user-data
+          hostPath:
+            path: /mnt/tpainas01/fpg/fsi001/p0nil1    #user data path on host 
+            type: DirectoryOrCreate 
+      nodeSelector:
+        AIserver: "tpdgx01"
+      containers:
+        - name: container-dev-0nil1 #container name   
+          image: dev_image_0nil1:latest   #container image
+          imagePullPolicy: IfNotPresent      #find local image
+          env:
+            - name: NVIDIA_VISIBLE_DEVICES   #set nvidia gpu env
+              value: none                    # all : all gpu; none : no gpu but has cuda lib; "" :  no gpu and no cuda lib
+          volumeMounts:
+            - name: oracle-tnsname           #container oracle tnsname          
+              mountPath: /usr/lib/oracle/11.2/client64/network/admin     #container oracle tnsname mount path      
+              readOnly: true  
+            - name: user-data                #container user data name
+              mountPath: /root/p0nil1        #container user data mount path
+          ports: 
+            - containerPort: 23         #container telnet
+            - containerPort: 8888       #container jupyter notebook
+            - containerPort: 80         #container 80 port
+          command: ["/bin/bash", "-c"]
+          args:
+                        #container start ssh service
+            - . /etc/environment;
+              . /etc/profile; 
+              apt update -y;
+              service ssh start; 
+              service xinetd start; 
+              jupyter notebook --notebook-dir=~ --allow-root &> /dev/null &
+              tail -f /dev/null; 
+          resources:
+            limits:
+              cpu: "8"       
+              memory: "64Gi"
+              nvidia.com/gpu: 0
+       #container gpu (interger num)
+            requests:
+              cpu: "0.5"
+              memory: "4Gi"
