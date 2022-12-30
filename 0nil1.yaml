@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dev-0nil1
+  name: {{ form_name }} #dev-0nil1
   #Deployment name , name not use '_'
-  namespace: fsi001
+  namespace: {{ form_namesapse }} #fsi001
   labels: 
-    app: deployment-dev-0nil1
+    app: deployment-{{ form_name }} #dev-0nil1
  #Deployment app name
 spec:
   selector:
     matchLabels:
-      app: dev-0nil1       #pod app name
+      app: {{ form_name }} #dev-0nil1       #pod app name
   replicas: 1              #mutil pod for load balance
   template:
     metadata: 
       labels:
-        app: dev-0nil1
+        app: {{ form_name }}dev-0nil1
     spec:
       volumes:
         - name: oracle-tnsname
@@ -30,8 +30,8 @@ spec:
       nodeSelector:
         AIserver: "tpdgx01"
       containers:
-        - name: container-dev-0nil1 #container name   
-          image: dev_image_0nil1:latest   #container image
+        - name: container-{{ form_name }} #dev-0nil1 #container name   
+          image: {{ form_image }} #dev_image_0nil1:latest   #container image
           imagePullPolicy: IfNotPresent      #find local image
           env:
             - name: NVIDIA_VISIBLE_DEVICES   #set nvidia gpu env
@@ -58,10 +58,10 @@ spec:
               tail -f /dev/null; 
           resources:
             limits:
-              cpu: "8"       
-              memory: "64Gi"
-              nvidia.com/gpu: 0
+              cpu: {{ form_limit_cpu }} #"8"       
+              memory: {{ form_limit_memory }} #"64Gi"
+              nvidia.com/gpu: {{ form_limit_gpu }} #0
        #container gpu (interger num)
             requests:
-              cpu: "0.5"
-              memory: "4Gi"
+              cpu: {{ form_request_cpu }} #"0.5"
+              memory: {{ form_request_memory }} #"4Gi"
